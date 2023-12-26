@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebClienteProductos.Models.ProductosExt>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaCaducidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Marcaid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departamentoid)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaCaducidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marcas.NombreM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Departamentoid)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
